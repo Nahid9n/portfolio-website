@@ -3,7 +3,7 @@
         <div class="d-flex">
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal" href="{{ route('dashboard') }}">
+            <a class="logo-horizontal" href="{{ route('admin.dashboard') }}">
                 <img src="" class="header-brand-img desktop-logo" alt="logo">
                 <img src="" class="header-brand-img light-logo1" alt="logo">
             </a>
@@ -532,11 +532,10 @@
                                 <a href="#" data-bs-toggle="dropdown"
                                     class="nav-link pe-2 leading-none d-flex animate">
                                     <span>
-                                        <img src="{{ asset(Session::get('admin_image')) }}" alt=""
-                                            class="avatar  profile-user brround cover-image">
+                                        <img src="{{asset('/')}}admin/assets/images/free-user-1493-459372.webp" alt="" class="avatar  profile-user brround cover-image">
                                     </span>
                                     <div class="text-center p-1 d-flex d-lg-none-max">
-                                        <h6 class="mb-0" id="profile-heading">{{ Session::get('admin_name') }} <i
+                                        <h6 class="mb-0" id="profile-heading">{{ auth()->user()->first_name.' '.auth()->user()->last_name }}<i
                                                 class="user-angle ms-1 fa fa-angle-down "></i></h6>
 
                                     </div>
@@ -551,7 +550,7 @@
                                         </svg>
                                         Profile
                                     </a>
-                                    <form class="dropdown-item" action="#" method="post">
+                                    <form class="dropdown-item" action="{{route('admin.logout')}}" method="post">
                                         @csrf
                                         <button type="submit" onclick="return confirm('are you sure to logout ?')"
                                             class="dropdown-item">Logout</button>
