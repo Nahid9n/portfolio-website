@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\website\WebsiteController;
+use App\Http\Controllers\admin\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +16,16 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/', [WebsiteController::class,'index'])->name('home');
+
+
+
+
+Route::get('/login',[AdminAuthController::class,'index'])->name('admin.login');
+Route::post('/login',[AdminAuthController::class,'login'])->name('admin.login');
+
+Route::middleware('auth:web')->prefix('admin')->group(function (){
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+    Route::post('/logout', [AdminAuthController::class,'logout'])->name('admin.logout');
+});
+
