@@ -18,7 +18,6 @@ class AdminAuthController extends Controller
         $admin = User::where('email',$request->email)->first();
 
         if (Auth::guard('web')->attempt($credentials)) {
-            // Authentication successful
             $user = auth()->user();
             $user->id = $admin->id;
             $user->first_name = $admin->first_name;

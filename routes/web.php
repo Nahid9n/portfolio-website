@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\website\WebsiteController;
 use App\Http\Controllers\admin\AdminAuthController;
+use App\Http\Controllers\admin\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,16 @@ use App\Http\Controllers\admin\AdminAuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::controller(WebsiteController::class)->group(function (){
+    Route::get('/','index')->name('home');
+    Route::get('/service','service')->name('service');
+    Route::get('/project','portfolio')->name('project');
+    Route::get('/blog','blog')->name('blog');
+    Route::get('/blog-details','blogDetails')->name('blog.details');
+    Route::get('/about','about')->name('about');
+    Route::get('/contact','contact')->name('contact');
+});
 
-Route::get('/', [WebsiteController::class,'index'])->name('home');
 
 
 
@@ -27,5 +36,6 @@ Route::post('/login',[AdminAuthController::class,'login'])->name('admin.login');
 Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
     Route::post('/logout', [AdminAuthController::class,'logout'])->name('admin.logout');
+    Route::resource('services',ServiceController::class);
 });
 

@@ -10,3 +10,4 @@
 <link rel="stylesheet" href="{{asset('/')}}website/assets/css/magnific-popup.css" type="text/css">
 <link rel="stylesheet" href="{{asset('/')}}website/assets/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="{{asset('/')}}website/assets/css/style.css" type="text/css">
+<link rel="stylesheet" href="{{asset('/')}}website/assets/css/custom.css" type="text/css">

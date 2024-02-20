@@ -3,26 +3,19 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="{{route('home')}}"><img src="{{asset('/')}}website/assets/img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="header__nav__option">
                     <nav class="header__nav__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="{{Request::route()->getName() == 'home' ? 'active' :''}}"><a href="{{route('home')}}">Home</a></li>
+                            <li class="{{Request::route()->getName() == 'project' ? 'active' :''}}"><a href="{{route('project')}}">Projects</a></li>
+                            <li class="{{Request::route()->getName() == 'service' ? 'active' :''}}"><a href="{{route('service')}}">Services</a></li>
+                            <li class="{{Request::route()->getName() == 'blog' ? 'active' :''}}"><a href="{{route('blog')}}">Blog</a></li>
+                            <li class="{{Request::route()->getName() == 'about' ? 'active' :''}}"><a href="{{route('about')}}">About</a></li>
+                            <li class="{{Request::route()->getName() == 'contact' ? 'active' :''}}"><a href="{{route('contact')}}">Contact</a></li>
                         </ul>
                     </nav>
                     <div class="header__nav__social">
