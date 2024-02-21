@@ -16,39 +16,41 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header border-bottom justify-content-between">
-                    <h3 class="card-title">Create Service </h3>
-                    <a class="btn btn-primary py-2" href="#">
-                        <h3>All Category</h3>
-                    </a>
+                    <h3 class="card-title">Create Service</h3>
+                    <a href="{{route('services.index')}}" class="btn btn-primary px-4 float-end" type="submit">All Service</a>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                    @if(session('message'))
+                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
+                    @endif
+                    <form class="form-horizontal" action="{{route('services.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Service Icon</label>
+                            <label for="icon" class="col-md-3 form-label">Icon</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="name" required value="{{ old('name') }}" name="name" placeholder="Enter your category name" type="text">
-                                <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
+                                <input type="file" class="dropify" name="icon" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
+                                <span class="text-danger">{{$errors->has('icon') ? $errors->first('icon'):''}}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="name" class="col-md-3 form-label">Service Name</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="name" required value="{{ old('name') }}" name="name" placeholder="Enter your category name" type="text">
+                                <input class="form-control" id="name" required value="{{ old('name') }}" name="name" placeholder="Enter your Service name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="name" class="col-md-3 form-label">Short Description</label>
                             <div class="col-md-9">
-                                <textarea name="short_description" placeholder="Enter Short Description" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="short_description" placeholder="Enter Short Description" id="" cols="30" rows="10">{{old('short_description')}}</textarea>
                                 <span class="text-danger">{{ $errors->has('short_description') ? $errors->first('column') : '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="name" class="col-md-3 form-label">Long Description</label>
                             <div class="col-md-9">
-                                <textarea name="long_description" placeholder="Enter Long Description" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="long_description" placeholder="Enter Long Description" id="" cols="30" rows="10">{{old('long_description')}}</textarea>
                                 <span class="text-danger">{{ $errors->has('long_description') ? $errors->first('column') : '' }}</span>
                             </div>
                         </div>
@@ -63,7 +65,16 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-4 float-end" type="submit">Submit</button>
+
+                        <div class="row mb-4 d-flex form-group">
+                            <div class="col-md-3">
+                                <label class="" for="type"></label>
+                            </div>
+                            <div class="col-md-9">
+                                <button class="btn btn-primary px-5" type="submit">Submit</button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

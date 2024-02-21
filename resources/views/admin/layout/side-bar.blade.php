@@ -39,8 +39,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Service Module</a></li>
-                        <li><a href="#" class="slide-item">All Service</a></li>
-                        <li><a href="#" class="slide-item">Add Service</a></li>
+                        <li><a href="{{route('services.index')}}" class="slide-item">All Service</a></li>
+                        <li><a href="{{route('services.create')}}" class="slide-item">Add Service</a></li>
                     </ul>
                 </li>
                 <li class="slide">
