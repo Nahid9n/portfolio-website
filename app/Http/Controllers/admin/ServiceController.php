@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Exception;
+
 
 class ServiceController extends Controller
 {
@@ -12,7 +15,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('admin.service.index');
+        return view('admin.service.index',[
+            'services'=>Service::all(),
+        ]);
     }
 
     /**
@@ -28,7 +33,18 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->validate($request,[
+                'name'=>'required | unique:services,name',
+                'icon'=>'mimes:jpg,jpeg,png,webp,tiff'
+            ]);
+            Service::newService($request);
+            return back()->with('message','Service Add Successfully.');
+        }
+        catch (Exception $e){
+            return back()->with('message',$e->getMessage());
+        }
+
     }
 
     /**
@@ -44,7 +60,9 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('admin.service.edit');
+        return view('admin.service.edit',[
+            'service'=>$service,
+        ]);
     }
 
     /**
@@ -52,7 +70,25 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        try {
+            $this->validate($request,[
+                'name'=>'required',Rule::unique('services')->ignore($service->id),
+                'icon'=>'mimes:jpg,jpeg,png,webp,tiff'
+            ],[
+                'name.required'=>'Name is required',
+                'name.unique'=>'Already have this name.',
+            ]);
+            Service::updateService($request,$service->id);
+            return redirect()->route('services.index')->with('message','Service Update Successfully.');
+        }
+        catch (\Exception $e){
+            return back()->with('message',$e->getMessage());
+        }
+
+    }
+    public function updateStatus(Request $request,$id){
+        Service::updatePublishedStatus($request,$id);
+        return back()->with('message',"update status success.");
     }
 
     /**
@@ -60,6 +96,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        Service::deleteService($service->id);
+        return back()->with('message',"delete service success.");
     }
 }

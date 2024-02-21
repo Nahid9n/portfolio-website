@@ -37,5 +37,6 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
     Route::post('/logout', [AdminAuthController::class,'logout'])->name('admin.logout');
     Route::resource('services',ServiceController::class);
+    Route::post('/services-status/{id}', [ServiceController::class,'updateStatus'])->name('services.status');
 });
 
