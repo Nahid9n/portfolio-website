@@ -68,8 +68,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Team Module</a></li>
-                        <li><a href="#" class="slide-item">All Team</a></li>
-                        <li><a href="#" class="slide-item">Add Team</a></li>
+                        <li><a href="{{route('teams.index')}}" class="slide-item">All Team</a></li>
+                        <li><a href="{{route('teams.create')}}" class="slide-item">Add Team</a></li>
                     </ul>
                 </li>
                 <li class="slide">
