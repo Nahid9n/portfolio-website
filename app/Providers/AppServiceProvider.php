@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer(['admin.layout.app'],function ($view){
+            $view->with([
+                'admin'=>User::where('id',auth()->user()->id)->first(),
+            ]);
+        });
     }
 }

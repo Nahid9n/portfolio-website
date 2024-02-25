@@ -6,6 +6,7 @@ use App\Http\Controllers\website\WebsiteController;
 use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TeamController;
+use App\Http\Controllers\admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::post('/services-status/{id}', [ServiceController::class,'updateStatus'])->name('services.status');
     Route::resource('teams',TeamController::class);
     Route::post('/teams-status/{id}', [TeamController::class,'updateStatus'])->name('teams.status');
+    Route::resource('blogs',BlogController::class);
+    Route::post('/blog-status/{id}', [BlogController::class,'updateStatus'])->name('blogs.status');
+
 
 });
 
