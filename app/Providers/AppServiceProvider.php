@@ -21,10 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['admin.layout.app'],function ($view){
-            $view->with([
-                'admin'=>User::where('id',auth()->user()->id)->first(),
-            ]);
-        });
+        //
     }
 }
