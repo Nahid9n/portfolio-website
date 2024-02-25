@@ -81,8 +81,8 @@
                         <span class="side-menu__label">Blog Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Blog Module</a></li>
-                        <li><a href="#" class="slide-item">All Blog</a></li>
-                        <li><a href="#" class="slide-item">Add Blog</a></li>
+                        <li><a href="{{route('blogs.index')}}" class="slide-item">All Blog</a></li>
+                        <li><a href="{{route('blogs.create')}}" class="slide-item">Add Blog</a></li>
                     </ul>
                 </li>
                 <li class="slide">
