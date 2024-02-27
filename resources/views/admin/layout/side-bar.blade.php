@@ -132,7 +132,7 @@
                         <span class="side-menu__label">Client Module</span><i class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
-                        <li><a href="#" class="slide-item">Client</a></li>
+                        <li><a href="{{route('clients.index')}}" class="slide-item">Client</a></li>
                     </ul>
                 </li>
                 <li class="slide">
