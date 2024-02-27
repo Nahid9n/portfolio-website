@@ -81,7 +81,6 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-//        return $request;
         try {
             $this->validate($request,[
                 'title'=>'required',
