@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\WebsiteSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::post('/blog-status/{id}', [BlogController::class,'updateStatus'])->name('blogs.status');
     Route::resource('clients',ClientController::class);
     Route::post('/clients-status/{id}', [ClientController::class,'updateStatus'])->name('clients.status');
+    Route::get('/website-setup', [WebsiteSettingController::class,'index'])->name('website.setup.index');
+    Route::put('/website-setup-update/{id}', [WebsiteSettingController::class,'update'])->name('website.setup.update');
 
 
 });
