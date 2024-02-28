@@ -46,6 +46,9 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::post('/clients-status/{id}', [ClientController::class,'updateStatus'])->name('clients.status');
     Route::get('/website-setup', [WebsiteSettingController::class,'index'])->name('website.setup.index');
     Route::put('/website-setup-update/{id}', [WebsiteSettingController::class,'update'])->name('website.setup.update');
+    Route::get('/website-about', [WebsiteSettingController::class,'about'])->name('website.about');
+    Route::put('/website-about-update/{id}', [WebsiteSettingController::class,'aboutUpdate'])->name('website.about.update');
+
 
 
 });

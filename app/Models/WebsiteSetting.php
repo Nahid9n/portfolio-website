@@ -60,11 +60,4 @@ class WebsiteSetting extends Model
         self::$website->status = $request->status;
         self::$website->save();
     }
-    public static function updatePublishedStatus($request,$id)
-    {
-        self::$website = WebsiteSetting::find($id);
-        self::$website->status = $request->status;
-        self::$website->save();
-    }
-
 }
