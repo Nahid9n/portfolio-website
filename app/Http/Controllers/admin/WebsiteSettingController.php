@@ -49,7 +49,7 @@ class WebsiteSettingController extends Controller
                 'image2'=>'mimes:jpg,jpeg,png,webp,tiff',
                 'image3'=>'mimes:jpg,jpeg,png,webp,tiff',
             ],[
-                'title.required'=>'Name is required',
+                'title.required'=>'title is required',
                 'image1.mimes'=>'File Type Must be jpg,jpeg,png,webp,tiff',
                 'image2.mimes'=>'File Type Must be jpg,jpeg,png,webp,tiff',
                 'image3.mimes'=>'File Type Must be jpg,jpeg,png,webp,tiff',
