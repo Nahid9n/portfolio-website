@@ -154,7 +154,7 @@
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Sub-menus</a></li>
                         <li><a href="{{route('website.setup.index')}}" class="slide-item">Website setup</a></li>
-                        <li><a href="#" class="slide-item">About</a></li>
+                        <li><a href="{{route('website.about')}}" class="slide-item">About</a></li>
                         <li class="sub-slide">
                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="#"><span
                                     class="sub-side-menu__label">Slider</span><i
@@ -167,7 +167,6 @@
                         <li><a href="#" class="slide-item">Contact</a></li>
                         <li><a href="#" class="slide-item">Profile</a></li>
                         <li><a href="#" class="slide-item">Account</a></li>
-                        <li><a href="#" class="slide-item">About</a></li>
                     </ul>
                 </li>
             </ul>
