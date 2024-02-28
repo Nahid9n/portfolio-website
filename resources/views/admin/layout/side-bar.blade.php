@@ -153,7 +153,7 @@
                         <span class="side-menu__label">Setting</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Sub-menus</a></li>
-                        <li><a href="#" class="slide-item">Website setup</a></li>
+                        <li><a href="{{route('website.setup.index')}}" class="slide-item">Website setup</a></li>
                         <li><a href="#" class="slide-item">About</a></li>
                         <li class="sub-slide">
                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="#"><span

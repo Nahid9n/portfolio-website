@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('website_settings', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('website_name');
-            $table->text('logo');
-            $table->text('banner');
-            $table->text('icon');
-            $table->longText('video')->nullable();
-            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('website_settings');
+        Schema::dropIfExists('abouts');
     }
 };
