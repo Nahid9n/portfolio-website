@@ -176,9 +176,7 @@
 
                 <div class="card-body">
                     <div class="table-responsive export-table">
-                        @if(session('message'))
-                            <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                        @endif
+
                         <table id="data-table" class="table text-nowrap mb-0 table-bordered table-striped">
                             <thead class="table-head">
                             <tr class="fw-bold bg-primary text-center">

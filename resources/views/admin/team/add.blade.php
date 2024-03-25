@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Name</label>
+                            <label for="name" class="col-md-3 form-label">Name <span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input class="form-control" id="name" required value="{{old('name')}}" name="name" placeholder="Enter your name" type="text">
                                 <span class="text-danger">{{$errors->has('name') ? $errors->first('name'):''}}</span>

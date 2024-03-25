@@ -4,45 +4,21 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__item set-bg" data-setbg="{{asset('/')}}website/assets/img/hero/hero-1.jpg">
+            @foreach($sliders as $slider)
+            <div class="hero__item set-bg" data-setbg="{{asset($slider->image)}}">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <span>For website and video editing</span>
-                                <h2>Videographer’s Portfolio</h2>
+                                <span>{{$slider->slogan}}</span>
+                                <h2>{{$slider->title}}</h2>
                                 <a href="#" class="primary-btn">See more about us</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hero__item set-bg" data-setbg="{{asset('/')}}website/assets/img/hero/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <span>For website and video editing</span>
-                                <h2>Videographer’s Portfolio</h2>
-                                <a href="#" class="primary-btn">See more about us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero__item set-bg" data-setbg="{{asset('/')}}website/assets/img/hero/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <span>For website and video editing</span>
-                                <h2>Videographer’s Portfolio</h2>
-                                <a href="#" class="primary-btn">See more about us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     <!-- Hero Section End -->

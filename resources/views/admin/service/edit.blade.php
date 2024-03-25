@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-header border-bottom justify-content-between">
                     <h3 class="card-title">Update Service </h3>
-                    <button class="btn btn-primary px-4 float-end" type="submit">All Service</button>
+                    <a href="{{route('services.index')}}" class="btn btn-primary px-4 float-end" type="submit">All Service</a>
                 </div>
                 <div class="card-body">
                     <form class="form-horizontal" action="{{route('services.update',$service->id)}}" method="POST" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Service Name</label>
+                            <label for="name" class="col-md-3 form-label">Service Name <span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input class="form-control" id="name" required value="{{ $service->name }}" name="name" placeholder="Enter your Service name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>

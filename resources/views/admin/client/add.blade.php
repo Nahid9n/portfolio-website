@@ -20,12 +20,6 @@
                     <a href="{{route('clients.index')}}" class="btn btn-primary px-4 float-end" type="submit">All client</a>
                 </div>
                 <div class="card-body">
-                    @if(session('message'))
-                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                    @endif
-                    @if(session('error'))
-                        <p class="alert alert-danger text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('error')}}</p>
-                    @endif
                     <form class="form-horizontal" action="{{route('clients.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
@@ -37,9 +31,9 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">client Name <span class="text-danger fw-bold">*</span></label>
+                            <label for="name" class="col-md-3 form-label">Client Name <span class="text-danger fw-bold">*</span></label>
                             <div class="col-md-9">
-                                <input class="form-control" id="name" required value="{{ old('name') }}" name="name" placeholder="Enter your client name" type="text">
+                                <input class="form-control" id="name" value="{{ old('name') }}" name="name" placeholder="Enter your client name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
                             </div>
                         </div>

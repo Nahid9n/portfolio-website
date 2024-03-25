@@ -20,9 +20,7 @@
                     <a href="{{route('blogs.index')}}" class="btn btn-primary px-4 float-end" type="submit">All Blog</a>
                 </div>
                 <div class="card-body">
-                    @if(session('message'))
-                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                    @endif
+
                     <form class="form-horizontal" action="{{route('blogs.update',$blog->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -35,7 +33,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="title" class="col-md-3 form-label">Blog Title</label>
+                            <label for="title" class="col-md-3 form-label">Blog Title <span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input class="form-control" id="title" required value="{{ $blog->title }}" name="title" placeholder="Enter your Service name" type="text">
                                 <span class="text-danger">{{ $errors->has('title') ? $errors->first('title') : '' }}</span>

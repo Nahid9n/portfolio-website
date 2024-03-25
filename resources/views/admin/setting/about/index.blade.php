@@ -10,9 +10,7 @@
         <div class="col-md-12">
             <div class="card table-responsive border shadow border-3 card-body">
                 <div class="row border border-bottom-3 p-3">
-                    @if(session('message'))
-                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                    @endif
+
                     @if(session('error'))
                         <p class="alert alert-danger text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('error')}}</p>
                     @endif

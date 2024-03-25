@@ -33,9 +33,7 @@
                     <div class="table-responsive export-table">
                         <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom  w-100">
                             <thead>
-                            @if(session('message'))
-                            <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                            @endif
+
                             <tr>
                                 <th class="border-bottom-0">SL No</th>
                                 <th class="border-bottom-0">Name</th>

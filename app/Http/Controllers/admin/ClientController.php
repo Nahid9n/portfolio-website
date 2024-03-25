@@ -43,7 +43,7 @@ class ClientController extends Controller
             return back()->with('message','New Client Add Successfully.');
         }
         catch (Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('warning',$e->getMessage());
         }
 
     }
@@ -83,7 +83,7 @@ class ClientController extends Controller
             return redirect()->route('clients.index')->with('message','Client Update Successfully.');
         }
         catch (Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('warning',$e->getMessage());
         }
     }
     public function updateStatus(Request $request,$id){

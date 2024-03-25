@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function index(){
-        return view('website.home.index');
+        return view('website.home.index',[
+            'sliders'=>Slider::where('status',1)->latest()->get(),
+        ]);
     }
     public function service(){
         return view('website.service.index');
