@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\WebsiteSetting;
 use Illuminate\Http\Request;
 use Exception;
@@ -60,8 +61,22 @@ class WebsiteSettingController extends Controller
         catch (Exception $e){
             return back()->with('error',$e->getMessage());
         }
-
     }
+    public function contact(){
+        return view('admin.setting.contact.index',[
+            'contact'=>Contact::first(),
+        ]);
+    }
+    public function contactUpdate(Request $request,$id){
+        try {
+            Contact::updateWebsiteContact($request,$id);
+            return back()->with('message','Update Success.');
+        }
+        catch (Exception $e){
+            return back()->with('error',$e->getMessage());
+        }
+    }
+
 
 
 }
