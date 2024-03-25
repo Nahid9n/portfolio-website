@@ -164,7 +164,7 @@
                                 <li><a class="sub-slide-item" href="{{route('slider.create')}}">Add Slider</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" class="slide-item">Contact</a></li>
+                        <li><a href="{{route('website.contact')}}" class="slide-item">Contact</a></li>
                         <li><a href="#" class="slide-item">Profile</a></li>
                         <li><a href="#" class="slide-item">Account</a></li>
                     </ul>
