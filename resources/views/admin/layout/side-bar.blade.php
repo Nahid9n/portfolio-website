@@ -160,8 +160,8 @@
                                     class="sub-side-menu__label">Slider</span><i
                                     class="sub-angle fa fa-angle-right"></i></a>
                             <ul class="sub-slide-menu">
-                                <li><a class="sub-slide-item" href="#">All Slider</a></li>
-                                <li><a class="sub-slide-item" href="#">Add Slider</a></li>
+                                <li><a class="sub-slide-item" href="{{route('slider.index')}}">All Slider</a></li>
+                                <li><a class="sub-slide-item" href="{{route('slider.create')}}">Add Slider</a></li>
                             </ul>
                         </li>
                         <li><a href="#" class="slide-item">Contact</a></li>

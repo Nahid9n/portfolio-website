@@ -20,9 +20,7 @@
                     <a href="{{route('clients.index')}}" class="btn btn-primary px-4 float-end" type="submit">All Client</a>
                 </div>
                 <div class="card-body">
-                    @if(session('message'))
-                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                    @endif
+
                     @if(session('error'))
                         <p class="alert alert-danger text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('error')}}</p>
                     @endif
@@ -38,7 +36,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">client Name</label>
+                            <label for="name" class="col-md-3 form-label">Client Name</label>
                             <div class="col-md-9">
                                 <input class="form-control" id="name" required value="{{ $client->name }}" name="name" placeholder="Enter your client name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>

@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\WebsiteSettingController;
+use App\Http\Controllers\admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,8 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::put('/website-setup-update/{id}', [WebsiteSettingController::class,'update'])->name('website.setup.update');
     Route::get('/website-about', [WebsiteSettingController::class,'about'])->name('website.about');
     Route::put('/website-about-update/{id}', [WebsiteSettingController::class,'aboutUpdate'])->name('website.about.update');
-
+    Route::resource('slider',SliderController::class);
+    Route::post('/slider-status/{id}', [SliderController::class,'updateStatus'])->name('slider.status');
 
 
 });

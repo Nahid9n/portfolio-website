@@ -20,9 +20,7 @@
                     <a href="{{route('services.index')}}" class="btn btn-primary px-4 float-end" type="submit">All Service</a>
                 </div>
                 <div class="card-body">
-                    @if(session('message'))
-                        <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
-                    @endif
+
                     <form class="form-horizontal" action="{{route('services.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
@@ -34,7 +32,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Service Name</label>
+                            <label for="name" class="col-md-3 form-label">Service Name <span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input class="form-control" id="name" required value="{{ old('name') }}" name="name" placeholder="Enter your Service name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
