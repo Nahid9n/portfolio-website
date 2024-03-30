@@ -25,7 +25,6 @@
                     <a href="{{route('teams.index')}}" class="btn btn-success my-1 float-end mx-2 text-center">All Team</a>
                 </div>
                 <div class="card-body">
-                    <p class="alert alert-success text-center" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">{{session('message')}}</p>
                     <form class="form-horizontal" action="{{route('teams.update',$team->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

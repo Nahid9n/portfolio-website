@@ -23,66 +23,21 @@
     <section class="services-page spad">
         <div class="container">
             <div class="row">
+                @forelse($services as $service)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-2.png" alt="">
+                            <img src="{{asset($service->icon)}}" alt="">
                         </div>
-                        <h4>Scriptwriting and editing</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
+                        <h4>{{$service->name}}</h4>
+                        <p>{{$service->short_description}}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-1.png" alt="">
-                        </div>
-                        <h4>Motion graphics</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
+                @empty
+                    <div class="">
+                        <p>No Service Found</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-2.png" alt="">
-                        </div>
-                        <h4>Scriptwriting and editing</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-3.png" alt="">
-                        </div>
-                        <h4>Video distribution</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-4.png" alt="">
-                        </div>
-                        <h4>Video hosting</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="{{asset('/')}}website/assets/img/icons/si-4.png" alt="">
-                        </div>
-                        <h4>Video hosting</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -111,12 +66,9 @@
     <div class="logo spad">
         <div class="container">
             <div class="logo__carousel owl-carousel">
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-1.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-2.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-3.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-4.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-5.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="{{asset('/')}}website/assets/img/logo/logo-6.png" alt=""></a>
+                @foreach($clients as $client)
+                <a target="_blank" href="{{$client->company_url}}" class="logo__item"><img src="{{asset($client->logo)}}" alt=""></a>
+                @endforeach
             </div>
         </div>
     </div>

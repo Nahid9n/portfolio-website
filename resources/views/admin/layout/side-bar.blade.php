@@ -119,7 +119,7 @@
                         <span class="side-menu__label">Contact Module</span><i class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
-                        <li><a href="#" class="slide-item">Client Contact Message</a></li>
+                        <li><a href="{{route('contact.messages')}}" class="slide-item">Client Contact Message</a></li>
                     </ul>
                 </li>
 

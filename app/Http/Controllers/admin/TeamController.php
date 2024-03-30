@@ -15,7 +15,7 @@ class TeamController extends Controller
     public function index()
     {
         return view('admin.team.index',[
-            'teams'=>Team::all(),
+            'teams'=>Team::latest()->get(),
         ]);
     }
 
