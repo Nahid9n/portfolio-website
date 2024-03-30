@@ -29,6 +29,9 @@ Route::controller(WebsiteController::class)->group(function (){
     Route::get('/blog-details','blogDetails')->name('blog.details');
     Route::get('/about','about')->name('about');
     Route::get('/contact','contact')->name('contact');
+    Route::post('/contact-message','contactMessage')->name('contact.message');
+    Route::get('/contact-messages','contactMessages')->name('contact.messages');
+    Route::get('/contact-messages-show/{id}','contactMessageShow')->name('contact.message.show');
 });
 
 Route::get('/login',[AdminAuthController::class,'index'])->name('admin.login');
@@ -53,7 +56,7 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::put('/website-contact-update/{id}', [WebsiteSettingController::class,'contactUpdate'])->name('website.contact.update');
     Route::resource('slider',SliderController::class);
     Route::post('/slider-status/{id}', [SliderController::class,'updateStatus'])->name('slider.status');
-    Route::post('/slider-status/{id}', [SliderController::class,'contact'])->name('admin.contact');
+//    Route::post('/slider-contact/{id}', [SliderController::class,'contact'])->name('admin.contact');
 
 
 });
