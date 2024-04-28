@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use function Symfony\Component\String\Slugger\slug;
 
 class Blog extends Model
 {
@@ -21,6 +23,7 @@ class Blog extends Model
     public static function newBlog($request){
         self::$blog = new Blog();
         self::$blog->title = $request->title;
+        self::$blog->slug = Str::slug($request->title);
         self::$blog->author = $request->author;
         self::$blog->image = $request->file('image') ? self::getImage($request):'';
         self::$blog->short_description = $request->short_description;
@@ -34,6 +37,7 @@ class Blog extends Model
     public static function updateBlog($request,$id){
         self::$blog = Blog::find($id);
         self::$blog->title = $request->title;
+        self::$blog->slug = Str::slug($request->title);
         self::$blog->author = $request->author;
         if ($request->file('image')){
             if (file_exists(self::$blog->image)){

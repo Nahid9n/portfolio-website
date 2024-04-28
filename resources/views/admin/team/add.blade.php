@@ -78,7 +78,7 @@
                         <div class="row mb-4">
                             <label for="address" class="col-md-3 form-label">Address</label>
                             <div class="col-md-9">
-                                <input class="form-control" value="{{old('address')}}" id="address" name="address" placeholder="Enter address" type="number">
+                                <input class="form-control" value="{{old('address')}}" id="address" name="address" placeholder="Enter address" type="text">
                                 <span class="text-danger">{{$errors->has('address') ? $errors->first('address'):''}}</span>
                             </div>
                         </div>

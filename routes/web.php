@@ -10,7 +10,8 @@ use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\WebsiteSettingController;
 use App\Http\Controllers\admin\SliderController;
-
+use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +25,9 @@ use App\Http\Controllers\admin\SliderController;
 Route::controller(WebsiteController::class)->group(function (){
     Route::get('/','index')->name('home');
     Route::get('/service','service')->name('service');
-    Route::get('/project','portfolio')->name('project');
+    Route::get('/project','project')->name('project');
     Route::get('/blog','blog')->name('blog');
-    Route::get('/blog-details','blogDetails')->name('blog.details');
+    Route::get('/blog-details/{slug}','blogDetails')->name('blog.details');
     Route::get('/about','about')->name('about');
     Route::get('/contact','contact')->name('contact');
     Route::post('/contact-message','contactMessage')->name('contact.message');
@@ -41,6 +42,10 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
     Route::post('/logout', [AdminAuthController::class,'logout'])->name('admin.logout');
     Route::resource('services',ServiceController::class);
+    Route::resource('projects',ProjectController::class);
+    Route::resource('categories',CategoryController::class);
+    Route::post('/categories-status/{id}', [CategoryController::class,'updateStatus'])->name('categories.status');
+    Route::post('/projects-status/{id}', [ProjectController::class,'updateStatus'])->name('projects.status');
     Route::post('/services-status/{id}', [ServiceController::class,'updateStatus'])->name('services.status');
     Route::resource('teams',TeamController::class);
     Route::post('/teams-status/{id}', [TeamController::class,'updateStatus'])->name('teams.status');

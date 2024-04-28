@@ -16,7 +16,7 @@
     <!-- PAGE-HEADER END -->
     <div class="row">
         <div class="col-md-12">
-            <div class="card table-responsive border shadow border-3 card-body bg-success-transparent">
+            <div class="card table-responsive border shadow border-3 card-body">
                 <div class="row">
                     <div class="col-6 my-2">
                         <p class="navbar-brand">Client Contact Message</p>
@@ -35,11 +35,11 @@
                                 </tr>
                                 <tr>
                                     <th>Email</th>
-                                    <td><a class="text-success" target="_blank" href="mailto:{{$message->email}}">{{$message->email }}</a></td>
+                                    <td><a class="text-success bg-dark p-2" target="_blank" href="mailto:{{$message->email}}">{{$message->email }}</a></td>
                                 </tr>
                                 <tr>
                                     <th>Message</th>
-                                    <td><textarea class="form-control border-0" name="" id="" cols="30" rows="10">{{$message->message }}</textarea></td>
+                                    <td><textarea class="form-control border-0 text-dark" name="" id="" cols="30" rows="10" readonly>{{$message->message }}</textarea></td>
                                 </tr>
                             </table>
                         </div>
