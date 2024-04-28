@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Contact;
 use App\Models\ContactMessage;
+use App\Models\Project;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Team;
@@ -22,6 +25,7 @@ class WebsiteController extends Controller
             'team2'=>Team::where('status',1)->latest()->skip(1)->first(),
             'team3'=>Team::where('status',1)->latest()->skip(2)->first(),
             'team4'=>Team::where('status',1)->latest()->skip(3)->first(),
+            'blogs'=>Blog::where('status',1)->latest()->get(),
         ]);
     }
     public function service(){
@@ -30,14 +34,25 @@ class WebsiteController extends Controller
             'clients'=>Client::where('status',1)->latest()->get(),
         ]);
     }
-    public function portfolio(){
-        return view('website.portfolio.index');
+    public function project(){
+        $projects = Project::where('status',1)->latest()->paginate(18);
+        $categories = Category::where('status',1)->latest()->get();
+        return view('website.project.index',compact("projects","categories"));
     }
     public function blog(){
-        return view('website.blog.index');
+        return view('website.blog.index',[
+            'blogs'=> Blog::where('status',1)->latest()->paginate(20),
+        ]);
     }
-    public function blogDetails(){
-        return view('website.blog.details');
+    public function blogDetails($slug){
+        $blogs = Blog::where('status',1)->whereNotIn('slug',[$slug])->latest()->take(6)->get();
+        $blog = Blog::where('slug',$slug)->where('status',1)->first();
+        $tags = explode(',',$blog->meta_tags);
+        return view('website.blog.details',[
+            'blogs'=>$blogs,
+            'blog'=>$blog,
+            'tags'=>$tags,
+        ]);
     }
     public function about(){
         return view('website.about.index');

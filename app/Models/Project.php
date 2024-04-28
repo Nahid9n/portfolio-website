@@ -23,7 +23,7 @@ class Project extends Model
         self::$video = $request->file('video');
         self::$extension = self::$video->getClientOriginalExtension();
         self::$videoName = time().'.'.self::$extension;
-        self::$directory = 'upload/project/video';
+        self::$directory = 'upload/project/video/';
         self::$video->move(self::$directory,self::$videoName);
         self::$videoUrl = self::$directory.self::$videoName;
         return self::$videoUrl;
@@ -31,20 +31,30 @@ class Project extends Model
 
     public static function newProject($request){
         self::$project = new Project();
+        self::$project->user_id = auth()->user()->id;
         self::$project->title = $request->title;
         self::$project->slug = Str::slug($request->title);
         self::$project->image = $request->file('image') ? self::getImageUrl($request):'';
         self::$project->video = $request->file('video') ? self::getVideoUrl($request):'';
         self::$project->short_details = $request->short_details;
         self::$project->long_details = $request->long_details;
-        self::$project->project_type = $request->project_type;
+        self::$project->category_id = $request->category_id;
         self::$project->code = $request->code;
+        self::$project->team_id = json_encode($request->team_id);
+        self::$project->client_id = $request->client_id;
+        self::$project->commit = $request->commit;
+        self::$project->start_date = $request->start_date;
+        self::$project->end_date = $request->end_date;
         self::$project->vendor = $request->vendor;
+        self::$project->progress = $request->progress;
+        self::$project->panel = $request->panel;
         self::$project->live_status = $request->live_status;
         self::$project->status = $request->status;
         self::$project->save();
+        return self::$project;
     }
     public static function updateProject($request,$id){
+
         self::$project = Project::find($id);
         if ($request->file('image')){
             if (file_exists(self::$project->image)){
@@ -58,16 +68,25 @@ class Project extends Model
             }
             self::$project->video = self::getVideoUrl($request);
         }
+        self::$project->user_id = auth()->user()->id;
         self::$project->title = $request->title;
         self::$project->slug = Str::slug($request->title);
         self::$project->short_details = $request->short_details;
         self::$project->long_details = $request->long_details;
-        self::$project->project_type = $request->project_type;
+        self::$project->category_id = $request->category_id;
         self::$project->code = $request->code;
+        self::$project->team_id = json_encode($request->team_id);
+        self::$project->client_id = $request->client_id;
+        self::$project->commit = $request->commit;
+        self::$project->start_date = $request->start_date;
+        self::$project->end_date = $request->end_date;
         self::$project->vendor = $request->vendor;
+        self::$project->progress = $request->progress;
+        self::$project->panel = $request->panel;
         self::$project->live_status = $request->live_status;
         self::$project->status = $request->status;
         self::$project->save();
+        return self::$project;
     }
     public static function updatePublishedStatus($request,$id)
     {
@@ -84,5 +103,11 @@ class Project extends Model
             unlink(self::$project->video);
         }
         self::$project->delete();
+    }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function client(){
+        return $this->belongsTo(Client::class);
     }
 }

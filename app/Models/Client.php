@@ -52,4 +52,7 @@ class Client extends Model
         }
         self::$client->delete();
     }
+    public function project(){
+        return $this->hasOne(Project::class);
+    }
 }

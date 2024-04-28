@@ -120,6 +120,10 @@
 <!-- SELECT2 JS -->
 <script src="{{ asset('/') }}admin/assets/plugins/select2/select2.full.min.js"></script>
 
+<!-- FORM ELEMENTS JS -->
+<script src="{{ asset('/') }}admin/assets/js/formelementadvnced.js"></script>
+
+
 <!-- Internal Input tags js-->
 <script src="{{ asset('/') }}admin/assets/plugins/inputtags/inputtags.js"></script>
 
@@ -141,6 +145,8 @@
 <!-- INTERNAL Summernote Editor js -->
 <script src="{{asset('/')}}admin/assets/plugins/summernote-editor/summernote1.js"></script>
 <script src="{{asset('/')}}admin/assets/js/summernote.js"></script>
+<!-- INVOICE CREATE JS-->
+<script src="{{asset('/')}}admin/assets/js/projects-new.js"></script>
 
 <script type="text/javascript">
     function myChangeFunction(input1) {
