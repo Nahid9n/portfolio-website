@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a href="{{route('home')}}"><img src="{{asset('/')}}website/assets/img/logo.png" alt=""></a>
+                    <a href="{{route('home')}}"><img src="{{asset($websiteSetup->logo)}}" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10">

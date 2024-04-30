@@ -3,10 +3,10 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{route('admin.dashboard')}}">
-                <img src="#" class="header-brand-img desktop-logo" alt="logo">
-                <img src="#" class="header-brand-img toggle-logo" alt="logo">
-                <img src="#" class="header-brand-img light-logo" alt="logo">
-                <img src="#" class="header-brand-img light-logo1" alt="logo">
+                <img src="{{asset($websiteSetup->logo)}}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{asset($websiteSetup->logo)}}" class="header-brand-img toggle-logo" alt="logo">
+                <img src="{{asset($websiteSetup->logo)}}" class="header-brand-img light-logo" alt="logo">
+                <img src="{{asset($websiteSetup->logo)}}" class="header-brand-img light-logo1" alt="logo">
             </a><!-- LOGO -->
         </div>
 
@@ -78,8 +78,8 @@
                         <span class="side-menu__label">Client Review Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Client Review Module</a></li>
-                        <li><a href=#" class="slide-item">Client Review</a></li>
-                        <li><a href="#" class="slide-item">Create Review</a></li>
+                        <li><a href="{{route('client-review.index')}}" class="slide-item">Client Review</a></li>
+                        <li><a href="{{route('client-review.create')}}" class="slide-item">Create Review</a></li>
                     </ul>
                 </li>
                 <li class="slide">

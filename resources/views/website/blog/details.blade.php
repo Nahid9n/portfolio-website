@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
-                    <div class="blog__hero__text">
-                        <h2>{{$blog->title}}</h2>
+                    <div class="blog__hero__text ">
+                        <h2 class="text-white"><span class="bg-primary p-2">{{$blog->title}}</span></h2>
                         <ul>
                             <li>by <span>{{$blog->author}}</span></li>
                             <li>{{date('d-m-Y', strtotime($blog->created_at))}}</li>
