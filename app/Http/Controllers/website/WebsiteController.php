@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\ClientReview;
 use App\Models\Contact;
 use App\Models\ContactMessage;
 use App\Models\Project;
@@ -55,7 +57,14 @@ class WebsiteController extends Controller
         ]);
     }
     public function about(){
-        return view('website.about.index');
+        $about      = About::where('status',1)->first();
+        $services   = Service::where('status',1)->latest()->take(2)->get();
+        $team1      = Team::where('status',1)->latest()->first();
+        $team2      = Team::where('status',1)->latest()->skip(1)->first();
+        $team3      = Team::where('status',1)->latest()->skip(2)->first();
+        $team4      = Team::where('status',1)->latest()->skip(3)->first();
+        $reviews     = ClientReview::where('status',1)->latest()->get();
+        return view('website.about.index',compact('about','services','team1','team2','team3','team4','reviews'));
     }
     public function contact(){
         return view('website.contact.index',[

@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\WebsiteSettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ClientReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,7 +63,8 @@ Route::middleware('auth:web')->prefix('admin')->group(function (){
     Route::resource('slider',SliderController::class);
     Route::post('/slider-status/{id}', [SliderController::class,'updateStatus'])->name('slider.status');
 //    Route::post('/slider-contact/{id}', [SliderController::class,'contact'])->name('admin.contact');
-
+    Route::resource('client-review',ClientReviewController::class);
+    Route::post('/client-review-status/{id}', [ClientReviewController::class,'updateStatus'])->name('client-review.status');
 
 });
 

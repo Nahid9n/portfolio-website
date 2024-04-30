@@ -35,7 +35,7 @@
                                 <th class="border-bottom-0">SL No</th>
                                 <th class="border-bottom-0">Name</th>
                                 <th class="border-bottom-0">Email</th>
-                                <th class="border-bottom-0">Message</th>
+                                <th class="border-bottom-0">Date</th>
                                 <th class="border-bottom-0">Action</th>
 
                             </tr>
@@ -48,7 +48,7 @@
                                         <p>{{$message->name}}</p>
                                     </td>
                                     <td>{{$message->email}}</td>
-                                    <td>{{$message->message}}</td>
+                                    <td>{{date_format($message->created_at,'d-m-y  h:m A')}}</td>
                                     <td><a class="btn btn-success btn-sm" href="{{route('contact.message.show',$message->id)}}"><i class="fa fa-eye"></i></a></td>
                                 </tr>
                             @endforeach

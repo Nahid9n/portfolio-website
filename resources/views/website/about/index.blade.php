@@ -9,7 +9,7 @@
                     <div class="breadcrumb__text">
                         <h2>About us</h2>
                         <div class="breadcrumb__links">
-                            <a href="#">Home</a>
+                            <a href="{{route('home')}}">Home</a>
                             <span>About</span>
                         </div>
                     </div>
@@ -27,15 +27,15 @@
                     <div class="about__pic">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="about__pic__item about__pic__item--large set-bg" data-setbg="{{asset('/')}}website/assets/img/about/about-1.jpg"></div>
+                                <div class="about__pic__item about__pic__item--large set-bg" data-setbg="{{asset($about->image1)}}"></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="about__pic__item set-bg" data-setbg="{{asset('/')}}website/assets/img/about/about-2.jpg"></div>
+                                        <div class="about__pic__item set-bg" data-setbg="{{asset($about->image2)}}"></div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="about__pic__item set-bg" data-setbg="{{asset('/')}}website/assets/img/about/about-3.jpg"></div>
+                                        <div class="about__pic__item set-bg" data-setbg="{{asset($about->image3)}}"></div>
                                     </div>
                                 </div>
                             </div>
@@ -45,33 +45,26 @@
                 <div class="col-lg-6">
                     <div class="about__text">
                         <div class="section-title">
-                            <span>About videograph</span>
-                            <h2>WHo we are?</h2>
+                            <span>About Us</span>
+                            <h2>{{$about->title}}</h2>
                         </div>
                         <div class="row">
+                            @foreach($services as $service)
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="services__item">
                                     <div class="services__item__icon">
-                                        <img src="{{asset('/')}}website/assets/img/icons/si-3.png" alt="">
+                                        <img src="{{asset($service->icon)}}" alt="">
                                     </div>
-                                    <h4>Video distribution</h4>
-                                    <p>Whether you’re halfway through the editing process, or you.</p>
+                                    <h4>{{$service->name}}</h4>
+                                    <p>{{$service->short_description}}</p>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="services__item">
-                                    <div class="services__item__icon">
-                                        <img src="{{asset('/')}}website/assets/img/icons/si-4.png" alt="">
-                                    </div>
-                                    <h4>Video hosting</h4>
-                                    <p>Whether you’re halfway through the editing process, or you.</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="about__text__desc">
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing in commercial, broadcast, tourism & action sport video
-                                production services has been featured.</p>
+                            <p>
+                                {{$about->description}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -93,91 +86,24 @@
             </div>
             <div class="row">
                 <div class="testimonial__slider owl-carousel">
+                    @foreach($reviews as $review)
                     <div class="col-lg-4">
                         <div class="testimonial__item">
                             <div class="testimonial__text">
-                                <p>Delivers such a great service that it can benefit all kinds of people from any number
-                                    of industries.</p>
+                                <p>{!! $review->review !!}</p>
                             </div>
                             <div class="testimonial__author">
                                 <div class="testimonial__author__pic">
-                                    <img src="{{asset('/')}}website/assets/img/testimonial/ta-1.jpg" alt="">
+                                    <img src="{{asset($review->image)}}" alt="">
                                 </div>
                                 <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
+                                    <h5>{{$review->name}}</h5>
+                                    <span>{{$review->designation}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="{{asset('/')}}website/assets/img/testimonial/ta-2.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="{{asset('/')}}website/assets/img/testimonial/ta-3.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Delivers such a great service that it can benefit all kinds of people from any number
-                                    of industries.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="{{asset('/')}}website/assets/img/testimonial/ta-1.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
-                            <div class="testimonial__text">
-                                <p>Videographer delivers such a great service that it can benefit all kinds of people
-                                    from any number.</p>
-                            </div>
-                            <div class="testimonial__author">
-                                <div class="testimonial__author__pic">
-                                    <img src="{{asset('/')}}website/assets/img/testimonial/ta-2.jpg" alt="">
-                                </div>
-                                <div class="testimonial__author__text">
-                                    <h5>Krista Attorn</h5>
-                                    <span>Web Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -244,57 +170,61 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item set-bg" data-setbg="{{asset('/')}}website/assets/img/team/team-1.jpg">
+                    <div class="team__item set-bg" data-setbg="{{asset($team1->image ?? '')}}">
                         <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
+                            <h4>{{$team1->name ?? ''}}</h4>
+                            <p>{{$team1->company ?? ''}}</p>
                             <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team1->facebook ?? ''}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$team1->twitter ?? ''}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$team1->linkedin ?? ''}}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{$team1->instagram ?? ''}}"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team1->youtube ?? ''}}"><i class="fa fa-youtube-play"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--second set-bg" data-setbg="{{asset('/')}}website/assets/img/team/team-2.jpg">
+                    <div class="team__item team__item--second set-bg" data-setbg="{{asset($team2->image ?? '')}}">
                         <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
+                            <h4>{{$team2->name ?? ''}}</h4>
+                            <p>{{$team2->company ?? ''}}</p>
                             <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team2->facebook ?? ''}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$team2->twitter ?? ''}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$team2->linkedin ?? ''}}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{$team2->instagram ?? ''}}"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team2->youtube ?? ''}}"><i class="fa fa-youtube-play"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--third set-bg" data-setbg="{{asset('/')}}website/assets/img/team/team-3.jpg">
+                    <div class="team__item team__item--third set-bg" data-setbg="{{asset($team3->image ?? '')}}">
                         <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
+                            <h4>{{$team3->name ?? ''}}</h4>
+                            <p>{{$team3->company ?? ''}}</p>
                             <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team3->facebook ?? ''}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$team3->twitter ?? ''}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$team3->linkedin ?? ''}}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{$team3->instagram ?? ''}}"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team3->youtube ?? ''}}"><i class="fa fa-youtube-play-play"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                    <div class="team__item team__item--four set-bg" data-setbg="{{asset('/')}}website/assets/img/team/team-4.jpg">
+                    <div class="team__item team__item--four set-bg" data-setbg="{{asset($team4->image ?? '')}}">
                         <div class="team__item__text">
-                            <h4>AMANDA STONE</h4>
-                            <p>Videographer</p>
+                            <h4>{{$team4->name ?? ''}}</h4>
+                            <p>{{$team4->company ?? ''}}</p>
                             <div class="team__item__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team4->facebook ?? ''}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$team4->twitter ?? ''}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$team4->linkedin ?? ''}}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{$team4->instagram ?? ''}}"><i class="fa fa-instagram"></i></a>
+                                <a href="{{$team4->youtube ?? ''}}"><i class="fa fa-youtube-play-play"></i></a>
                             </div>
                         </div>
                     </div>

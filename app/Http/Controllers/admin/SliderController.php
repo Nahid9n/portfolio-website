@@ -34,7 +34,7 @@ class SliderController extends Controller
         try {
             $this->validate($request,[
                 'title'=>'required',
-                'image'=>'required | dimensions:width=1920,height=684 | mimes:jpg,png,jpeg,gif,svg',
+                'image'=>'required | mimes:jpg,png,jpeg,gif,svg',
             ],[
                 'title.required'=>'title Required',
                 'image.required'=>'image Required',
@@ -76,7 +76,7 @@ class SliderController extends Controller
         try {
             $this->validate($request,[
                 'title'=>'required',
-                'image'=>'dimensions:width=1920,height=684 | mimes:jpg,png,jpeg,gif,svg',
+                'image'=>'mimes:jpg,png,jpeg,gif,svg',
             ],[
                 'title.required'=>'title Required',
                 'image.dimensions'=>'Image must be 1920*684',
