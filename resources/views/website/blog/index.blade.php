@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 @foreach($blogs as $blog)
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item text-center">
                         <a href="{{route('blog.details',$blog->slug)}}">
                             <img src="{{asset($blog->image)}}" alt="" class="img-container">

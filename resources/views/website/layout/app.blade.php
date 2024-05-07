@@ -10,9 +10,10 @@
     <title>Tanvir Hasan Nahid | @yield('title')</title>
 
     @include('website.layout.style')
+
 </head>
 
-<body>
+<body class="vh-100 overflow-hidden">
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>

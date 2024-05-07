@@ -2,25 +2,12 @@
 @section('title','Contact')
 @section('body')
     <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option spad set-bg" data-setbg="{{asset('/')}}website/assets/img/breadcrumb-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Contact us</h2>
-                        <div class="breadcrumb__links">
-                            <a href="#">Home</a>
-                            <span>Contact</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="set-bg" style="padding-top: 110px" data-setbg="{{asset('/')}}website/assets/img/breadcrumb-bg.jpg">
     </div>
     <!-- Breadcrumb End -->
 
     <!-- Contact Widget Section Begin -->
-    <section class="contact-widget spad">
+    <section class="contact-widget spad" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-md-6 col-md-3">

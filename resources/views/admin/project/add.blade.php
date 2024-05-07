@@ -38,19 +38,19 @@
                             </div>
                             <div class="col-sm-12 col-md-12 col-xl-3">
                                 <div class="form-group">
-                                    <label for="project-start-date" class="form-label text-muted">Project Date:</label>
-                                    <div id="ps-datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <label for="project-start-date" class="form-label text-muted">Start Date:</label>
+                                    <div class="input-group " data-date-format="dd-mm-yyyy">
                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
-                                        <input id="project-start-date" name="start_date" class="form-control" type="text" placeholder="Select Start Date"/>
+                                        <input name="start_date" class="form-control" type="date" value="" placeholder=""/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-12 col-xl-3 end-date-container">
+                            <div class="col-sm-12 col-md-12 col-xl-3">
                                 <div class="form-group">
                                     <label for="project-end-date" class="form-label text-muted">End Date:</label>
-                                    <div id="pe-datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <div class="input-group " data-date-format="dd-mm-yyyy">
                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
-                                        <input id="project-end-date" name="end_date" class="form-control" type="text" placeholder="Select End Date"/>
+                                        <input name="end_date" class="form-control" type="date" value="" placeholder=""/>
                                     </div>
                                 </div>
                             </div>

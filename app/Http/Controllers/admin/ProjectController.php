@@ -38,7 +38,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             $this->validate($request,[
                 'title'=>'required',
@@ -96,6 +95,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
         try {
             $this->validate($request,[
                 'title'=>'required',

@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('vendor')->nullable();
             $table->string('team_id')->nullable();
             $table->string('panel')->nullable();
-            $table->string('start_date')->nullable();
-            $table->string('end_date')->nullable();
+            $table->text('start_date')->nullable();
+            $table->text('end_date')->nullable();
             $table->string('progress')->nullable();
             $table->tinyInteger('client_id')->nullable();
             $table->string('commit')->nullable();

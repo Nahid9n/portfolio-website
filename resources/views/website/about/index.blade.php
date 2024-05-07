@@ -2,20 +2,8 @@
 @section('title','Service')
 @section('body')
     <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option spad set-bg" data-setbg="{{asset('/')}}website/assets/img/breadcrumb-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>About us</h2>
-                        <div class="breadcrumb__links">
-                            <a href="{{route('home')}}">Home</a>
-                            <span>About</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class=" set-bg" style="padding-top: 110px" data-setbg="{{asset('/')}}website/assets/img/breadcrumb-bg.jpg">
+
     </div>
     <!-- Breadcrumb End -->
 
@@ -119,16 +107,17 @@
                         <div class="counter__item">
                             <div class="counter__item__text">
                                 <img src="{{asset('/')}}website/assets/img/icons/ci-1.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Compled Projects</p>
+                                <h2 class="counter_num">{{$projectCount}}</h2>
+                                <p>Projects</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="counter__item second__item">
                             <div class="counter__item__text">
-                                <img src="{{asset('/')}}website/assets/img/icons/ci-2.png" alt="">
-                                <h2 class="counter_num">1068</h2>
+                                <img src="{{asset('/')}}" alt="">
+                                <i class="fa text-primary fa-users" style="font-size: 50px"></i>
+                                <h2 class="counter_num">{{$client}}</h2>
                                 <p>Happy clients</p>
                             </div>
                         </div>
@@ -137,8 +126,8 @@
                         <div class="counter__item third__item">
                             <div class="counter__item__text">
                                 <img src="{{asset('/')}}website/assets/img/icons/ci-3.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Perspective clients</p>
+                                <h2 class="counter_num">{{$serviceCount}}</h2>
+                                <p>Perspective Services</p>
                             </div>
                         </div>
                     </div>
@@ -146,16 +135,18 @@
                         <div class="counter__item four__item">
                             <div class="counter__item__text">
                                 <img src="{{asset('/')}}website/assets/img/icons/ci-4.png" alt="">
-                                <h2 class="counter_num">230</h2>
-                                <p>Compled Projects</p>
+                                <h2 class="counter_num">{{$teamCount}}</h2>
+                                <p>Team Member</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
     <!-- Counter Section End -->
+
 
     <!-- Team Section Begin -->
     <section class="team spad set-bg" data-setbg="{{asset('/')}}website/assets/img/team-bg.jpg">
