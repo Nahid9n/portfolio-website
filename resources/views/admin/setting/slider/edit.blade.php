@@ -39,7 +39,7 @@
                             <label for="imgInp" class="col-md-3 form-label">Image (1920*684)<span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input type="file" id="imgInp" class="dropify" name="image" data-height="200"/>
-                                <img src="{{asset($slider->image)}}" width="300" height="100" alt="">
+                                <img class="w-25" src="{{asset($slider->image)}}" alt="">
                                 <span class="text-danger">{{$errors->has('image')?$errors->first('image'):''}}</span>
                             </div>
                         </div>

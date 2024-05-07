@@ -40,7 +40,7 @@
                             <div class="col-sm-12 col-md-12 col-xl-3">
                                 <div class="form-group">
                                     <label for="project-start-date" class="form-label text-muted">Start Date:</label>
-                                    <div class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <div class="input-group">
                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
                                         <input name="start_date" class="form-control" type="date" value="{{$project->start_date}}" placeholder="{{$project->start_date}}"/>
                                     </div>
@@ -49,7 +49,7 @@
                             <div class="col-sm-12 col-md-12 col-xl-3">
                                 <div class="form-group">
                                     <label for="project-end-date" class="form-label text-muted">End Date:</label>
-                                    <div class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <div class="input-group ">
                                         <span class="input-group-addon input-group-text bg-primary-transparent"><i class="fe fe-calendar text-primary-dark"></i></span>
                                         <input name="end_date" class="form-control" type="date" value="{{$project->end_date}}" placeholder="{{$project->end_date}}"/>
                                     </div>
@@ -114,7 +114,11 @@
                                     <label for="image" class="col-md-3 form-label">Image</label>
                                     <div class="col-md-9">
                                         <input type="file" class="dropify" name="image" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
-                                        <img src="{{asset($project->image)}}" alt="" width="100" height="100">
+                                        @if($project->image != '')
+                                            <img src="{{asset($project->image)}}" alt="" width="100" height="100">
+                                        @else
+                                            <p>No Image</p>
+                                        @endif
                                         <span class="text-danger">{{$errors->has('image') ? $errors->first('image'):''}}</span>
                                     </div>
                                 </div>
@@ -134,10 +138,14 @@
                                     <label for="video" class="col-md-3 form-label">Video</label>
                                     <div class="col-md-9">
                                         <input type="file" class="dropify" name="video" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
+                                        @if($project->image != '')
                                         <video width="300" height="200" controls>
                                             <source src="{{asset($project->video)}}" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
+                                        @else
+                                            <p>No Video</p>
+                                        @endif
                                         <span class="text-danger">{{$errors->has('video') ? $errors->first('video'):''}}</span>
                                     </div>
                                 </div>
@@ -225,7 +233,7 @@
                             <div class="btn-list text-end">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fe fe-check-circle"></i>
-                                    create project
+                                    update project
                                 </button>
                             </div>
                         </div>

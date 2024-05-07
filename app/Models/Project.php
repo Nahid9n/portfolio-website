@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\If_;
 
 class Project extends Model
 {
@@ -54,7 +55,6 @@ class Project extends Model
         return self::$project;
     }
     public static function updateProject($request,$id){
-
         self::$project = Project::find($id);
         if ($request->file('image')){
             if (file_exists(self::$project->image)){
@@ -76,10 +76,17 @@ class Project extends Model
         self::$project->category_id = $request->category_id;
         self::$project->code = $request->code;
         self::$project->team_id = json_encode($request->team_id);
-        self::$project->client_id = $request->client_id;
+        if ($request->client_id != 'No Client'){
+            self::$project->client_id = $request->client_id ? $request->client_id : self::$project->client_id;
+        }
         self::$project->commit = $request->commit;
-        self::$project->start_date = $request->start_date;
-        self::$project->end_date = $request->end_date;
+        if ($request->start_date != ''){
+            self::$project->start_date = $request->start_date ? $request->start_date : self::$project->start_date;
+        }
+
+        if ($request->end_date != ''){
+            self::$project->end_date = $request->end_date ? $request->end_date : self::$project->end_date;
+        }
         self::$project->vendor = $request->vendor;
         self::$project->progress = $request->progress;
         self::$project->panel = $request->panel;
@@ -109,5 +116,8 @@ class Project extends Model
     }
     public function client(){
         return $this->belongsTo(Client::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

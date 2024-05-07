@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ClientReviewController;
+use App\Http\Controllers\BlogCommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,14 +28,21 @@ Route::controller(WebsiteController::class)->group(function (){
     Route::get('/','index')->name('home');
     Route::get('/service','service')->name('service');
     Route::get('/project','project')->name('project');
+    Route::get('/project-details/{slug}','projectDetails')->name('project.details');
     Route::get('/blog','blog')->name('blog');
     Route::get('/blog-details/{slug}','blogDetails')->name('blog.details');
     Route::get('/about','about')->name('about');
+    Route::get('/team','team')->name('team');
     Route::get('/contact','contact')->name('contact');
     Route::post('/contact-message','contactMessage')->name('contact.message');
     Route::get('/contact-messages','contactMessages')->name('contact.messages');
     Route::get('/contact-messages-show/{id}','contactMessageShow')->name('contact.message.show');
 });
+Route::controller(BlogCommentController::class)->group(function (){
+    Route::post('/blog-store','storeComment')->name('blog.store.comment');
+    Route::post('/blog-store-reply','replyComment')->name('blog.store.reply');
+});
+
 
 Route::get('/login',[AdminAuthController::class,'index'])->name('admin.login');
 Route::post('/login',[AdminAuthController::class,'login'])->name('admin.login');

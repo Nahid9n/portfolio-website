@@ -12,7 +12,7 @@ class About extends Model
     public static function getImage1($request){
         self::$image1 = $request->file('image1');
         self::$extension = self::$image1->getClientOriginalExtension();
-        self::$image1Name = time().'.'.self::$extension;
+        self::$image1Name = self::$image1->getClientOriginalName();
         self::$directory = 'upload/setting/about/';
         self::$image1->move(self::$directory,self::$image1Name);
         self::$image1Url = self::$directory.self::$image1Name;
@@ -21,7 +21,7 @@ class About extends Model
     public static function getImage2($request){
         self::$image2 = $request->file('image2');
         self::$extension = self::$image2->getClientOriginalExtension();
-        self::$image2Name = time().'.'.self::$extension;
+        self::$image2Name = self::$image2->getClientOriginalName();
         self::$directory = 'upload/setting/about/';
         self::$image2->move(self::$directory,self::$image2Name);
         self::$image2Url = self::$directory.self::$image2Name;
@@ -30,7 +30,7 @@ class About extends Model
     public static function getImage3($request){
         self::$image3 = $request->file('image3');
         self::$extension = self::$image3->getClientOriginalExtension();
-        self::$image3Name = time().'.'.self::$extension;
+        self::$image3Name = self::$image3->getClientOriginalName();
         self::$directory = 'upload/setting/about/';
         self::$image3->move(self::$directory,self::$image3Name);
         self::$image3Url = self::$directory.self::$image3Name;

@@ -46,8 +46,8 @@
                             <tbody>
                             @foreach($sliders as $slider)
                                 <tr class="text-center">
-                                    <td><img width="300" height="100" src="{{asset($slider->image)}}" alt="no image"></td>
-                                    <td><img width="120" height="100" src="{{asset($slider->banner)}}" alt="no banner"></td>
+                                    <td><img class="w-25" src="{{asset($slider->image)}}" alt="no image"></td>
+                                    <td><img class="w-25" src="{{asset($slider->banner)}}" alt="no banner"></td>
                                     <td>{{$slider->title}}</td>
                                     <td>{{$slider->meta}}</td>
                                     <td>{{$slider->meta_description}}</td>
@@ -61,13 +61,13 @@
                                             </select>
                                         </form>
                                     </td>
-                                    <td class="text-center">
-                                        <a href="{{route('slider.show',$slider->id)}}" class="btn btn-primary mb-1"><i class="fa fa-regular fa-eye"></i></a>
+                                    <td class="d-flex justify-content-center text-center">
+                                        <a href="{{route('slider.show',$slider->id)}}" class="btn btn-primary mx-1 mb-1"><i class="fa fa-regular fa-eye"></i></a>
                                         <a href="{{route('slider.edit',$slider->id)}}" class="btn btn-primary mb-1"><i class="fa fa-regular fa-edit"></i></a>
                                         <form action="{{ route('slider.destroy', $slider->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="return confirm('are you sure to delete ?')" class="btn btn-danger"><i class="fa fa-regular fa-trash"></i></button>
+                                            <button type="submit" onclick="return confirm('are you sure to delete ?')" class="btn btn-danger mx-1"><i class="fa fa-regular fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

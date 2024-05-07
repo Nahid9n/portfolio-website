@@ -61,7 +61,7 @@
                             <label for="image1" class="col-md-3 form-label">Image1</label>
                             <div class="col-md-9">
                                 <input type="file" class="dropify" name="image1" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
-                                <img src="{{asset($about->image1)}}" alt="" width="100">
+                                <img class="w-25" src="{{asset($about->image1)}}" alt="">
                                 <span class="text-danger">{{$errors->has('image1') ? $errors->first('image1'):''}}</span>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             <label for="image2" class="col-md-3 form-label">Image2</label>
                             <div class="col-md-9">
                                 <input type="file" class="dropify" name="image2" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
-                                <img src="{{asset($about->image2)}}" alt="" width="100">
+                                <img class="w-25" src="{{asset($about->image2)}}" alt="">
                                 <span class="text-danger">{{$errors->has('image2') ? $errors->first('image2'):''}}</span>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             <label for="image3" class="col-md-3 form-label">Image3</label>
                             <div class="col-md-9">
                                 <input type="file" class="dropify" name="image3" data-default-file="https://laravel8.spruko.com/noa/assets/images/photos/1.jpg" data-height="200"/>
-                                <img src="{{asset($about->image3)}}" alt="" width="100">
+                                <img class="w-25" src="{{asset($about->image3)}}" alt="">
                                 <span class="text-danger">{{$errors->has('image3') ? $errors->first('image3'):''}}</span>
                             </div>
                         </div>
