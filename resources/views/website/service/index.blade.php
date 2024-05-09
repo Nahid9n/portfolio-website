@@ -121,8 +121,8 @@
     </div>
 
     <!-- Logo Begin -->
-    <div class="logo spad">
-        <div class="container">
+    <div class="logo">
+        <div class="">
             <div class="logo__carousel owl-carousel">
                 @foreach($clients as $client)
                 <a target="_blank" href="{{$client->company_url}}" class="logo__item"><img src="{{asset($client->logo)}}" alt=""></a>
