@@ -75,8 +75,8 @@
             <div class="row">
                 <div class="testimonial__slider owl-carousel">
                     @foreach($reviews as $review)
-                    <div class="col-lg-4">
-                        <div class="testimonial__item">
+                    {{--<div class="col-lg-4" style="height: 400px">
+                        <div class="testimonial__item" style="height: 400px">
                             <div class="testimonial__text">
                                 <p>{!! $review->review !!}</p>
                             </div>
@@ -90,7 +90,23 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
+                        <div class="col-lg-4">
+                            <div class="card bg-transparent border-white" style="height: 500px">
+                                <div class="card-header">
+                                    <div class="testimonial__author__pic">
+                                        <img src="{{asset($review->image)}}" alt="">
+                                    </div>
+                                    <div class="testimonial__author__text">
+                                        <h5>{{$review->name}}</h5>
+                                        <span>{{$review->designation}}</span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-white">{!! $review->review !!}</p>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

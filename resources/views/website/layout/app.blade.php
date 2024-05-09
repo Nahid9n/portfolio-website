@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="vh-100 overflow-hidden">
+<body class="vh-100 overflow-x-hidden">
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>

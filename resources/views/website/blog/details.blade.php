@@ -103,9 +103,13 @@
                     <div class="row my-3">
                         @foreach($blogs as $blog)
                             <div class="col-lg-12 col-md-6 col-sm-6">
-                                <div class="">
+                                <div class="text-white">
                                     <a href="{{route('blog.details',$blog->slug)}}">
-                                        <img src="{{asset($blog->image)}}" alt="image here" width="200">
+                                        @if($blog->image != '')
+                                            <img src="{{asset($blog->image)}}" alt="" class="img-container" width="250" height="150">
+                                        @else
+                                            <img src="{{asset('/')}}website/assets/img/no_image.jpg" alt="" class="img-container"  width="250" height="150">
+                                        @endif
                                     </a>
                                     <h5 class="my-2"><a href="{{route('blog.details',$blog->slug)}}">{{$blog->title}}</a></h5>
                                     <span>{{date('d-m-Y', strtotime($blog->created_at))}}</span>

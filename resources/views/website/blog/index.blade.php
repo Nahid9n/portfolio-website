@@ -11,9 +11,13 @@
             <div class="row">
                 @foreach($blogs as $blog)
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="blog__item text-center">
+                    <div class="blog__item text-center" style="width: 400px; height: 500px">
                         <a href="{{route('blog.details',$blog->slug)}}">
-                            <img src="{{asset($blog->image)}}" alt="" class="img-container">
+                            @if($blog->image != '')
+                            <img src="{{asset($blog->image)}}" alt="" class="img-container" width="250" height="150">
+                            @else
+                                <img src="{{asset('/')}}website/assets/img/no_image.jpg" alt="" class="img-container"  width="250" height="150">
+                            @endif
                         </a>
                         <h4 class="my-2"><a href="{{route('blog.details',$blog->slug)}}">{{$blog->title}}</a></h4>
                         <ul>

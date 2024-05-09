@@ -262,7 +262,7 @@
     <!-- Team Section End -->
 
     <!-- Latest Blog Section Begin -->
-    <section class="latest spad">
+    <section class="latest spad set-bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -273,21 +273,28 @@
                 </div>
             </div>
             <div class="row">
-                <div class="latest__slider owl-carousel">
-                    @foreach($blogs as $blog)
-                    <div class="col-lg-4" style="width: 400px; height: 70vh">
-                        <div class="blog__item latest__item">
-                            <a href="{{route('blog.details',$blog->slug)}}"><img src="{{asset($blog->image)}}" alt="" class="" width="250" height="200"></a>
-                            <h4 class="my-2"><a href="{{route('blog.details',$blog->slug)}}">{{$blog->title}}</a></h4>
-                            <ul>
-                                <li>{{date('d-m-Y', strtotime($blog->created_at))}}</li>
-                                <li>05 Comment</li>
-                            </ul>
-                            <p>{{ substr($blog->long_description, 0, 150) . '...'}}</p>
-                            <a href="{{route('blog.details',$blog->slug)}}">Read more <span class="arrow_right"></span></a>
-                        </div>
-                    </div>
-                    @endforeach
+                <div class="latest__slider owl-carousel set-bg" style="height: 600px">
+                        @foreach($blogs as $blog)
+                            <div class="col-lg-4">
+                                <div class="blog__item latest__item" style="width: 400px; height: 500px">
+                                        <a href="{{route('blog.details',$blog->slug)}}">
+                                            @if($blog->image != '')
+                                                <img src="{{asset($blog->image)}}" alt="" class="img-container" width="250" height="150">
+                                            @else
+                                                <img src="{{asset('/')}}website/assets/img/no_image.jpg" alt="" class="img-container"  width="250" height="150">
+                                            @endif
+                                        </a>
+                                        <h4 class="my-2"><a href="{{route('blog.details',$blog->slug)}}">{{$blog->title}}</a></h4>
+                                        <ul>
+                                            <li>{{date('d-m-Y', strtotime($blog->created_at))}}</li>
+                                            <li>05 Comment</li>
+                                        </ul>
+                                        <p>{{$blog->short_description}}</p>
+                                        <a href="{{route('blog.details',$blog->slug)}}">Read more <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        @endforeach
+
                 </div>
             </div>
         </div>
